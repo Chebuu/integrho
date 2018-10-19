@@ -1,0 +1,30 @@
+Package: integrho
+Type: Package
+Title: Integration of High-thoughput Omics data 
+Version: 0.1.0
+Date: 2018-03-05
+Author: Dario Righelli 
+Maintainer: Dario Righelli <dario.righelli@gmail.com>
+Description: A shiny interface for multi-omic data handling and integration.
+License: GPL3
+Encoding: UTF-8
+LazyData: TRUE
+biocViews: Transcriptomics, Epigenetics, Software, GUI
+Depends: 
+    shiny,
+    shinythemes,
+    R6
+Imports:
+    plotly,
+    GGally,
+    NOISeq,
+    edgeR,
+    ChIPpeakAnno, 
+    plyr,
+    rtracklayer,
+    knitr
+LinkingTo: 
+RoxygenNote: 6.0.1
+Suggests: 
+VignetteBuilder: knitr
+
