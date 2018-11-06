@@ -1,6 +1,6 @@
 RenderGraphicsUI <- function(input, output, session) {
   fluidPage(
-    navlistPanel(title = "Graphics",
+    navlistPanel("Graphics",
                  tabPanel("Barplot"),
                  tabPanel("Bi-Histogram"),
                  tabPanel("Bi-Plot"),
@@ -20,13 +20,13 @@ RenderGraphicsUI <- function(input, output, session) {
                  tabPanel("Volcano Plot"),
                  widths = c(2,10)
     )
-    
+
   )
 }
 
 RenderIntegrationDataUI <- function(input, output, session) {
   fluidPage(
-    navlistPanel(title = "Integration Data",
+    navlistPanel("Integration Data",
                  tabPanel("Global Enrichment Profiles"),
                  tabPanel("Local Enrichment Profiles"),
                  tabPanel("Heatmap Table"),
@@ -37,11 +37,11 @@ RenderIntegrationDataUI <- function(input, output, session) {
 
 RenderGenomicPlotsUI <- function(input, output, session) {
   fluidPage(
-    navlistPanel(title = "Genomic Plots",
+    navlistPanel("Genomic Plots",
                  tabPanel("Genome Density"),
                  tabPanel("Circles"),
                  widths = c(2,10)
     )
-    
+
   )
 }

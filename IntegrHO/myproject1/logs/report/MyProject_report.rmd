@@ -1,0 +1,443 @@
+# This is the manually inserted header
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2016-10-17 16:35:49`
+
+This is a manually inserted comment!
+
+```{r eval=TRUE, echo=TRUE, message=FALSE}
+
+require("plotly")
+## Selected parameters values: 
+feature.type<- 'TSS' 
+output<- 'nearestLocation' 
+max.gap<- '0' 
+peak.loc.for.distance<- 'start' 
+feature.loc.for.distance<- 'TSS' 
+select<- 'all' 
+ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list = peaks, annotation.data = annotation.gr.cpa,
+#                             feature.type = input$featuretype_param, output = input$output_param, max.gap = input$maxgap_param,
+#                             peak.loc.for.distance = input$peaklocfordist_param, feature.loc.for.distance = input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+
+
+# annotated.peaks.path <- "/home/dario/Dropbox/Lavori/IAC/coding/integrho/demo_src/IntegrHO/myproject1/results/data/annotated_peaks" 
+readRDS("/home/dario/Dropbox/Lavori/IAC/coding/integrho/demo_src/pie.rds")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 20:05:16`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 20:06:48`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 22:26:20`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 22:39:57`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 22:41:58`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 22:42:54`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-22 22:45:15`
+```{r eval=TRUE, echo=TRUE}
+
+source("/Users/inzirio/Desktop/gDrive/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_NT_IP_sorted-W200-G400-FDR.00001-island.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-23 15:53:20`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-23 15:54:46`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'first' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_first_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-23 15:55:11`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'first' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_first_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-24 12:10:46`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-24 12:12:39`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-24 12:16:27`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+
+* In the *FunctionalAnnotation* section you choose the **ChipPeakAnno** section at `2018-10-24 12:49:20`
+```{r eval=TRUE, echo=TRUE}
+
+source("/media/dario/dati/iSync/works/coding/integrho/CachingFunctions.R")
+
+## Selected parameters values: 
+#feature.type<- 'TSS' 
+#output<- 'nearestLocation' 
+#max.gap<- '0' 
+#peak.loc.for.distance<- 'start' 
+#feature.loc.for.distance<- 'TSS' 
+#select<- 'all' 
+#ignore.strand<- 'TRUE' 
+
+## For completeness here is reported the Executed Code:
+# annotation.gtf <- ReadAnnotationGtf(file.path(annotations.path, anno.file))
+# annotation.gr.cpa <- Gtf2GrangeForChipPeakAnno(annotation.gtf)
+# annotated.peaks <- AnnotationChippeakanno(ProjectPath, peak.list=peaks, annotation.data=annotation.gr.cpa,
+#                             feature.type=input$featuretype_param, output=input$output_param, max.gap=input$maxgap_param,
+#                             peak.loc.for.distance=input$peaklocfordist_param, feature.loc.for.distance=input$featurelocfordist_param,
+#                             select=input$select_param, ignore.strand=input$ignorestrand_param)
+db.file.name <- "chippeakanno_annotation_gene_mm9_filter_coding.gtf_gold_peaks_2388.bed_TSS_nearestLocation_0_start_TSS_all_TRUE"
+Cache.Path <- "./IntegrHO/myproject1/logs/cache"
+cpa.cache.db.obj <- InitCachingDb(db.name=db.file.name, db.path=Cache.Path)
+annotation.gr.cpa <- LoadCachedObject(cpa.cache.db.obj, "annotation_data")
+
+peaks <- LoadCachedObject(cpa.cache.db.obj, "peaks_data")
+
+```
+

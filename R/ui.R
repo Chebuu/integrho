@@ -14,14 +14,15 @@
 #     title=div(img(src="myLogo.gif"), "My Title in the Navbar"),
 #     tabPanel(....
 
-IntegrhoUI <- fluidPage( theme= shinytheme("spacelab"),
-    list(tags$head(HTML('<link rel="icon", href="dna.png",
+IntegrhoUI <- fluidPage( theme=shinythemes::shinytheme("spacelab"),
+    list(tags$head(shiny::HTML('<link rel="icon", href="dna.png",
         type="image/png" />'))),
     div(style="padding: 1px 0px; width: '100%'",
         titlePanel( title="", windowTitle="IntegrHO")
     ),
 
-    navbarPage(title=div(img(src=system.file("png/integro_logo1.png", package="integrho"),
+    navbarPage(title=div(img(src=system.file("png/integro_logo1.png",
+                                            package="integrho"),
                         height=30, width=150)),
                 tabPanel("Project",
                         uiOutput("project_ui")
@@ -71,25 +72,43 @@ IntegrhoUI <- fluidPage( theme= shinytheme("spacelab"),
                         uiOutput("pathway_ui")
                     )
                 ),
+               navbarMenu("Integrate",
+                          tabPanel("Annotate Peaks",
+                                   uiOutput("peakgeneannotation_ui")
+                          ),
+                          tabPanel("MixOmics"),
+                                   #uiOutput("mixomics_ui")
+                          #),
+                          tabPanel("MoFa")#,
+                                   #uiOutput("exploresingledataset_ui")
+                          #)#,
+                          # tabPanel("Explore Pairs of Dataset",
+                          #          uiOutput("explorepairsdataset_ui")
+                          # ),
+                          # tabPanel("Explore Multiple Dataset",
+                          #          uiOutput("exploremultipledataset_ui")
+                          # )
+                          # uiOutput("statistics_ui")
+               ),
 
-                navbarMenu("Statistics",
-                    tabPanel("Test",
-                        uiOutput("tests_ui")
-                    ),
-                    tabPanel("Regression",
-                        uiOutput("regression_ui")
-                    ),
-                    tabPanel("Explore Single Dataset",
-                        uiOutput("exploresingledataset_ui")
-                    ),
-                    tabPanel("Explore Pairs of Dataset",
-                        uiOutput("explorepairsdataset_ui")
-                    ),
-                    tabPanel("Explore Multiple Dataset",
-                        uiOutput("exploremultipledataset_ui")
-                    )
-                           # uiOutput("statistics_ui")
-                ),
+                # navbarMenu("Statistics",
+                #     tabPanel("Test",
+                #         uiOutput("tests_ui")
+                #     ),
+                #     tabPanel("Regression",
+                #         uiOutput("regression_ui")
+                #     ),
+                #     tabPanel("Explore Single Dataset",
+                #         uiOutput("exploresingledataset_ui")
+                #     ),
+                #     tabPanel("Explore Pairs of Dataset",
+                #         uiOutput("explorepairsdataset_ui")
+                #     ),
+                #     tabPanel("Explore Multiple Dataset",
+                #         uiOutput("exploremultipledataset_ui")
+                #     )
+                #            # uiOutput("statistics_ui")
+                # ),
 
                 navbarMenu("Utilities",
                     tabPanel("BAM Utility"),

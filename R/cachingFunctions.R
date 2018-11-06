@@ -1,7 +1,7 @@
 # require(filehash)
 
 # library("R6")
-# 
+#
 # CacheDb <- R6Class("R6CacheDb",
 #                    ## a wrapper class for RData objects
 #                    public = list(
@@ -11,16 +11,16 @@
 #                        self$db.path.name = file.path(path, name)
 #                        variable.names = character()
 #                      }, ## end init
-# 
+#
 #                      AddObj = function(variable) {
 #                        if(length(self$variable.names)==0) {
 #                          save(file=self$db.path.name, list=variable)
 #                        } else {
 #                          var.name <- deparse(substitute(variable))
 #                          previous  <- load(self$db.path.name)
-#                          
+#
 #                          if( length(self$variable.names %in% var.name) ==0 ) {
-#                            ## append variable 
+#                            ## append variable
 #                            self$variable.names <- c(self$variable.names, var.name)
 #                            save(list = c(previous, var.name), file = self$db.path.name)
 #                            # save(list=var.name, file=self$db.path.name)
@@ -31,41 +31,41 @@
 #                          }
 #                        }
 #                      }, ## end add
-#                      
+#
 #                      LoadObj = function(variable.name) {
-#                        
-#                       
+#
+#
 #                      }
-#                      
+#
 #                    ), ## end public
-# 
+#
 #                    private = list(
 #                      db.name = NULL,
 #                      db.path = NULL,
 #                      db.path.name = NULL,
 #                      variable.names = NULL,
-#                       
+#
 #                      InitCachingRData = function() {
 #                        ## this function creates a new database or select an existing one
 #                        if(!file.exists(private$db.path)) {
 #                          dir.create(private$db.path, recursive=T)
 #                        }
-# 
+#
 #                        if(!file.exists(db.path.name)) {
 #                          #self$add(NULL)
 #                        }
-# 
+#
 #                        return(db)
 #                      } ## end init.db
-# 
-# 
+#
+#
 #                    ) ## end private
 # ) ## end class
 
 InitCachingDb <- function(db.name, db.path='') {
   ## this function creates a new database or select an existing one
   ## @name: the name of the database file
-  ## @path: if not null, creates 
+  ## @path: if not null, creates
   ## returns: the database object
   if(db.path=='') {
     db.path.name <- db.name
@@ -76,9 +76,9 @@ InitCachingDb <- function(db.name, db.path='') {
     }
   }
   if(!file.exists(db.path.name)) {
-    dbCreate(db.path.name)
+    filehash::dbCreate(db.path.name)
   }
-  db <- dbInit(db.path.name)
+  db <- filehash::dbInit(db.path.name)
   return(db)
 }
 
@@ -88,7 +88,7 @@ SaveInCache <- function(db, object, key) {
   ## @object: the object to save
   ## @key: the key value to associate to the object
   ## returns: none
-  dbInsert(db, key, object)
+    filehash::dbInsert(db, key, object)
 }
 
 LoadCachedObject <- function(db, key) {
@@ -96,7 +96,7 @@ LoadCachedObject <- function(db, key) {
   ## @db: the database object within the object is saved
   ## @key: the key value associated to the object
   ## returns: the object retrieved from the database
-  object <- dbFetch(db, key)
+  object <- filehash::dbFetch(db, key)
   return(object)
 }
 

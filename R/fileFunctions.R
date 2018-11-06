@@ -29,12 +29,12 @@ ReadAnnotationGtf <- function(gtf.path.file) {
 }
 
 ReadAnnotationBed <- function(bed.path.file) {
-  bed.annotation.data <- import(bed.path.file)
+  bed.annotation.data <- rtracklayer::import(bed.path.file)
   return(bed.annotation.data)
 }
 
 ReadPeakFile <- function(peaks.file) {
-  peaks <- import(peaks.file, format="BED")
+  peaks <- rtracklayer::import(peaks.file, format="BED")
   return(peaks)
 }
 

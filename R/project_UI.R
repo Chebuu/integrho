@@ -21,7 +21,7 @@ fluidPage(
                 tags$hr(),
                 tags$div(
                     title="Click Next for loading and processing project input information",
-                    actionButton(inputId="proj_next_but", label="Next >")
+                    actionButton(inputId="proj_next_but", label="Start", width="100%")
                 )
 
 

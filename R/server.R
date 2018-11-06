@@ -7,16 +7,30 @@ IntegrhoServer <- function(input, output, session)
         RenderProjectUI(input, output, session)
     })
 
-    # output$project_definition_ui <- renderDataTable(
     output$project_definition_ui <- rhandsontable::renderRHandsontable(
-    {
-        des.file <- input$design_file
-        if(!is.null(des.file))
         {
-            return(RenderProjectDefinitionUI(input, output, session))
+            des.file <- input$design_file
+            if(!is.null(des.file))
+            {
+                return(RenderProjectDefinitionUI(input, output, session))
+            }
+            #if (input$create_project_button == 0) return()
+            #ProjectDefinitionUI(input, output, session)
+        })
+
+    observeEvent(input$proj_next_but,{
+        # output$project_definition_ui <- renderDataTable(
+
+        filename <- input$design_file
+        design.table <- read.table(file=filename$datapath, header=TRUE, sep="\t")
+        if(colnames(design.table)[1] == "X")
+        {
+            colnames(design.table)[1] <- "Samples"
         }
-        #if (input$create_project_button == 0) return()
-        #ProjectDefinitionUI(input, output, session)
+        proj.name  <- input$project_name
+        mainProject <- ProjectR6$new(name=proj.name,
+                                    main.working.path="IntegrHO")
+        mainProject$setDesignTable(design.df=design.table)
     })
 
     ## data exploration section
@@ -49,12 +63,12 @@ IntegrhoServer <- function(input, output, session)
         RenderRnaSeqNormalizationUI(input, output, session)
     })
 
-    output$boxplotrnaseq_plotly <- renderPlotly({
+    output$boxplotrnaseq_plotly <- plotly::renderPlotly({
         if (input$rnaseqnormalize_button == 0) return()
         RenderRnaSeqUnNormalizedBoxplotPlot(input, output, session)
     })
 
-    output$boxplotrnaseqnormalized_plotly <- renderPlotly({
+    output$boxplotrnaseqnormalized_plotly <- plotly::renderPlotly({
         if (input$rnaseqnormalize_button == 0) return()
         RenderRnaSeqNormalizationBoxplotPlot(input, output, session)
     })
@@ -121,16 +135,33 @@ IntegrhoServer <- function(input, output, session)
         RenderAnnotationChIPUI(input, output, session)
     })
 
-    output$chippeakannotation_pie <- renderPlotly({
-        if (input$annotationchipPEA_button == 0) return()
-        RenderAnnotationPieCPA(input, output, session)
+    shiny::observeEvent(input$annotationchipPEA_button, {
+        output$chippeakannotation_pie <- plotly::renderPlotly({
+            # if (input$annotationchipPEA_button == 0) return()
+            RenderAnnotationPieCPA(input, output, session)
+        })
+
+        output$chippeakannotation_hist <- plotly::renderPlotly({
+            # if (input$annotationchipPEA_button == 0) return()
+            RenderAnnotationHistogramCPA(input, output, session)
+        })
     })
 
-    output$chippeakannotation_hist <- renderPlotly({
-        if (input$annotationchipPEA_button == 0) return()
-        RenderAnnotationHistogramCPA(input, output, session)
-    })
 
+    ####################
+    ## integrate ##
+
+    output$peakgeneannotation_ui <- renderUI({
+        # RenderGeneAnnotationUI(input, output, session)
+        # shiny::uiOutput("chippeakanno_ui")
+        RenderAnnoPeakGeneChIPUI(input, output, session)
+    })
+    shiny::observeEvent(input$annotationchipPEA_button, {
+        output$chippeakannotation_volc <- plotly::renderPlotly({
+            # if (input$annotationchipPEA_button == 0) return()
+            RenderAnnotationVolcanoCPA(input, output, session)
+        })
+    })
 
     ######################################
     ## statistics ##

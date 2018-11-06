@@ -1,15 +1,20 @@
-Project <- R6Class( "Project",
+ProjectR6 <- R6Class( "ProjectR6",
     private=list (
-        name="character"
+        name="character",
+        ## paths
+        design.path="character",
+        results.path="character",
+        plots.path="character",
+        report.path="character",
+
+        ## data str
+        design.table="data.frame"
     ) ,
 
     public=list(
         ## project name
 
-        ## paths
-        results.path="character",
-        plots.path="character",
-        report.path="character",
+
         ## others
         working.path="character",
         already.exists="logical",
@@ -19,10 +24,16 @@ Project <- R6Class( "Project",
         {
             if(missing(name)) stop("Please provide a project name!")
             self$SetName(name)
-            self$working.path <- self$UpdateFolderPath(main.working.path, name)
-            self$results.path <- self$UpdateFolderPath(self$working.path, "results")
-            self$plots.path <- self$UpdateFolderPath(self$results.path, "plots")
-            self$report.path <- self$UpdateFolderPath(self$working.path, "report")
+            private$working.path <- self$UpdateFolderPath(main.working.path,
+                                                            name)
+            private$results.path <- self$UpdateFolderPath(private$working.path,
+                                                            "results")
+            private$plots.path <- self$UpdateFolderPath(private$results.path,
+                                                            "plots")
+            private$report.path <- self$UpdateFolderPath(private$working.path,
+                                                            "report")
+            private$design.path <- self$UpdateFolderPath(private$working.path,
+                                                            "design")
         }
         ,
 
@@ -32,13 +43,32 @@ Project <- R6Class( "Project",
         }
         ,
 
+        setDesignTable=function(design.df)
+        {
+            private$design.table <- design.df
+            write.table(x=design.df,
+                        file=file.path(private$design.path, "design.tsv"),
+                        quote=FALSE, sep="\t", col.names=NA, row.names=FALSE)
+        }
+        ,
+
         GeneratePlotStrings=function(path, prefix, plot.type)
         {
-            title <- gsub(pattern="_", replacement=" ", x=UpdatePrefix(prefix, plot.type))
-            plot.folder <- gsub(pattern=" ", replacement="_", x=file.path(path, plot.type))
-            plot.file.name <- gsub(pattern=" ", replacement="_", x=UpdatePrefix(prefix, plot.type))
-            dir.create(plot.folder, showWarnings=FALSE, recursive=TRUE)
-            return(list("title"= title, "plot.folder"=plot.folder, "plot.file.name"=plot.file.name))
+            title <- gsub(pattern="_",
+                                replacement=" ",
+                                x=UpdatePrefix(prefix, plot.type))
+            plot.folder <- gsub(pattern=" ",
+                                replacement="_",
+                                x=file.path(path, plot.type))
+            plot.file.name <- gsub(pattern=" ",
+                                replacement="_",
+                                x=UpdatePrefix(prefix, plot.type))
+            dir.create(plot.folder,
+                                showWarnings=FALSE,
+                                recursive=TRUE)
+            return(list("title"= title,
+                                "plot.folder"=plot.folder,
+                                "plot.file.name"=plot.file.name))
         }
         ,
 
@@ -72,19 +102,18 @@ Project <- R6Class( "Project",
         GetProjectPaths=function()
         {
             return(
-                "name"=self$name
-                , "working.path"=self$working.path
-                , "results.path"=self$results.path
-                , "plots.path"=self$plots.path
+                # "name"=self$name,
+                "working.path"=private$working.path,
+                "results.path"=private$results.path,
+                "plots.path"=private$plots.path
                )
         }
         ,
-
         UpdateWorkingPath=function(sub.folder.to.generate)
         {
-            self$working.path <- self$UpdateFolderPath(self$working.path,
+            private$working.path <- self$UpdateFolderPath(private$working.path,
                                                     sub.folder.to.generate)
-            return(self$working.path)
+            return(private$working.path)
         }
         ,
         SetName=function(string)
