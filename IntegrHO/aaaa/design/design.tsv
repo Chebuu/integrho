@@ -1,0 +1,21 @@
+	Samples	genotype	condition	classic	gcondition	description
+1	S3HC5_S8	S3	HC5	CTRL	S3HC5	Home Cage Control
+2	S3HC5_S12	S3	HC5	CTRL	S3HC5	Home Cage Control
+3	S3HC5_S23	S3	HC5	CTRL	S3HC5	Home Cage Control
+4	S3HC5_S28	S3	HC5	CTRL	S3HC5	Home Cage Control
+5	S3HC5_S37	S3	HC5	CTRL	S3HC5	Home Cage Control
+6	S3SD5_S2	S3	SD5	TREA	S3SD5	Sleep Deprivation 5h
+7	S3SD5_S7	S3	SD5	TREA	S3SD5	Sleep Deprivation 5h
+8	S3SD5_S14	S3	SD5	TREA	S3SD5	Sleep Deprivation 5h
+9	S3SD5_S21	S3	SD5	TREA	S3SD5	Sleep Deprivation 5h
+10	S3SD5_S30	S3	SD5	TREA	S3SD5	Sleep Deprivation 5h
+11	WTHC5_S3	WT	HC5	CTRL	WTHC5	Home Cage Control
+12	WTHC5_S15	WT	HC5	CTRL	WTHC5	Home Cage Control
+13	WTHC5_S20	WT	HC5	CTRL	WTHC5	Home Cage Control
+14	WTHC5_S31	WT	HC5	CTRL	WTHC5	Home Cage Control
+15	WTHC5_S36	WT	HC5	CTRL	WTHC5	Home Cage Control
+16	WTSD5_S1	WT	SD5	TREA	WTSD5	Sleep Deprivation 5h
+17	WTSD5_S13	WT	SD5	TREA	WTSD5	Sleep Deprivation 5h
+18	WTSD5_S22	WT	SD5	TREA	WTSD5	Sleep Deprivation 5h
+19	WTSD5_S29	WT	SD5	TREA	WTSD5	Sleep Deprivation 5h
+20	WTSD5_S38	WT	SD5	TREA	WTSD5	Sleep Deprivation 5h

@@ -7,6 +7,9 @@ ProjectR6 <- R6Class( "ProjectR6",
         plots.path="character",
         report.path="character",
 
+        working.path="character",
+        already.exists="logical",
+        filename="character",
         ## data str
         design.table="data.frame"
     ) ,
@@ -16,9 +19,7 @@ ProjectR6 <- R6Class( "ProjectR6",
 
 
         ## others
-        working.path="character",
-        already.exists="logical",
-        filename="character",
+
 
         initialize=function(name, main.working.path="./")
         {
@@ -48,7 +49,7 @@ ProjectR6 <- R6Class( "ProjectR6",
             private$design.table <- design.df
             write.table(x=design.df,
                         file=file.path(private$design.path, "design.tsv"),
-                        quote=FALSE, sep="\t", col.names=NA, row.names=FALSE)
+                        quote=FALSE, sep="\t", col.names=NA)
         }
         ,
 
