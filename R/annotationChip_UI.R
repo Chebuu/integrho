@@ -6,7 +6,7 @@ RenderAnnotationChIPUI <- function(input, output, session)
         shiny::fluidRow(
             shiny::column(3,
                     shiny::wellPanel(
-                    tags$div(
+                        shiny::tags$div(
                         title="",
                         shiny::selectInput(inputId="peak_file",
                                         label="Select peaks:",

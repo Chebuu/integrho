@@ -12,136 +12,124 @@
 #   ),
 #   navbarPage(
 #     title=div(img(src="myLogo.gif"), "My Title in the Navbar"),
-#     tabPanel(....
+#     shiny::tabPanel(....
 
-IntegrhoUI <- fluidPage( theme=shinythemes::shinytheme("spacelab"),
+IntegrhoUI <- shiny::fluidPage( theme=shinythemes::shinytheme("spacelab"),
     list(tags$head(shiny::HTML('<link rel="icon", href="dna.png",
         type="image/png" />'))),
     div(style="padding: 1px 0px; width: '100%'",
         titlePanel( title="", windowTitle="IntegrHO")
     ),
 
-    navbarPage(title=div(img(src=system.file("png/integro_logo1.png",
+    shiny::navbarPage(title=div(img(src=system.file("png/integro_logo1.png",
                                             package="integrho"),
                         height=30, width=150)),
-                tabPanel("Project",
-                        uiOutput("project_ui")
+                shiny::tabPanel("Project",
+                        shiny::uiOutput("project_ui")
                 ),
-                navbarMenu("Data Exploration",
-                        tabPanel("Graphics",
-                            uiOutput("graphics_ui")
+                shiny::navbarMenu("Data Exploration",
+                        shiny::tabPanel("Graphics",
+                            shiny::uiOutput("graphics_ui")
                         ),
-                        tabPanel("Explore BAM files",
-                            uiOutput("bamfileexplore_ui")
+                        shiny::tabPanel("Explore BAM files",
+                            shiny::uiOutput("bamfileexplore_ui")
                         ),
-                        tabPanel("Explore BED files"
+                        shiny::tabPanel("Explore BED files"
                         ),
-                        tabPanel("Explore Counts file",
-                            uiOutput("countsfileexplore_ui")
+                        shiny::tabPanel("Explore Counts file",
+                            shiny::uiOutput("countsfileexplore_ui")
                         ),
-                        tabPanel("Genomic Plots",
-                            uiOutput("genomicplots_ui")
-                        ),
-                        tabPanel("Data Integration",
-                            uiOutput("integrationdata_ui")
+                        shiny::tabPanel("Genomic Plots",
+                            shiny::uiOutput("genomicplots_ui")
                         )
                 ),
-                navbarMenu("Sequencing",
-                    tabPanel("RNA-Seq Gene Expression",
-                        uiOutput("rnaseqgenexpression_ui")
-                    ),
-                    tabPanel("RNA-Seq Isoform Analysis",
-                        uiOutput("rnaseqisoform_ui")
-                    ),
-                    tabPanel("ChIP-Seq",
-                        uiOutput("chipseq_ui")
-                    ),
-                    tabPanel("Methyl-Seq",
-                        uiOutput("methylseq_ui")
-                    ),
-                    tabPanel("Others")
+                shiny::navbarMenu("RNA-Seq",
+                        shiny::tabPanel("Quantify Counts",
+                                shiny::uiOutput("rnaCounts_ui")
+                        ),
+                        shiny::tabPanel("Filter Counts",
+                                        # shiny::uiOutput("rnaFiltCounts_ui")
+                                renderRnaSeqFilteringUI("rnaFiltCounts_ui")
+                        ),
+                        shiny::tabPanel("Normalize Counts",
+                                        # shiny::uiOutput("rnaNormCounts_ui")
+                                renderRnaSeqNormalizationUI("rnaNormCounts_ui")
+                        )
+                    ,
+                    shiny::tabPanel("RNA-Seq Gene Expression",
+                        shiny::uiOutput("rnaseqgenexpression_ui")
+                    )
+                    #,
+                    # shiny::tabPanel("RNA-Seq Isoform Analysis",
+                    #     shiny::uiOutput("rnaseqisoform_ui")
+                    # ),
+                    # shiny::tabPanel("ChIP-Seq",
+                    #     shiny::uiOutput("chipseq_ui")
+                    # ),
+                    # shiny::tabPanel("ATAC-Seq",
+                    #     shiny::uiOutput("methylseq_ui")
+                    # ),
+                    # shiny::tabPanel("Others")
                 ),
-                navbarMenu("Funct & Ann",
-                    tabPanel("Gene Annotation",
-                        uiOutput("geneannotation_ui")
+                shiny::navbarMenu("ChIP-Seq"
+
+                ),
+                shiny::navbarMenu("ATAC-Seq"
+
+                ),
+                shiny::navbarMenu("Funct & Ann",
+                    shiny::tabPanel("Gene Annotation",
+                        shiny::uiOutput("geneannotation_ui")
                     ),
-                    tabPanel("Gene Ontology",
-                        uiOutput("geneontology_ui")
+                    shiny::tabPanel("Gene Ontology",
+                        shiny::uiOutput("geneontology_ui")
                     ),
-                    tabPanel("Pathway Analysis",
-                        uiOutput("pathway_ui")
+                    shiny::tabPanel("Pathway Analysis",
+                        shiny::uiOutput("pathway_ui")
                     )
                 ),
-               navbarMenu("Integrate",
-                          tabPanel("Annotate Peaks",
-                                   uiOutput("peakgeneannotation_ui")
-                          ),
-                          tabPanel("MixOmics"),
-                                   #uiOutput("mixomics_ui")
-                          #),
-                          tabPanel("MoFa")#,
-                                   #uiOutput("exploresingledataset_ui")
-                          #)#,
-                          # tabPanel("Explore Pairs of Dataset",
-                          #          uiOutput("explorepairsdataset_ui")
-                          # ),
-                          # tabPanel("Explore Multiple Dataset",
-                          #          uiOutput("exploremultipledataset_ui")
-                          # )
-                          # uiOutput("statistics_ui")
-               ),
+                shiny::navbarMenu("Integration",
+                        shiny::tabPanel("Functional"#,
 
-                # navbarMenu("Statistics",
-                #     tabPanel("Test",
-                #         uiOutput("tests_ui")
-                #     ),
-                #     tabPanel("Regression",
-                #         uiOutput("regression_ui")
-                #     ),
-                #     tabPanel("Explore Single Dataset",
-                #         uiOutput("exploresingledataset_ui")
-                #     ),
-                #     tabPanel("Explore Pairs of Dataset",
-                #         uiOutput("explorepairsdataset_ui")
-                #     ),
-                #     tabPanel("Explore Multiple Dataset",
-                #         uiOutput("exploremultipledataset_ui")
-                #     )
-                #            # uiOutput("statistics_ui")
-                # ),
-
-                navbarMenu("Utilities",
-                    tabPanel("BAM Utility"),
-                    tabPanel("BED Utility",
-                        uiOutput("bedutilities_ui")
+                        ),
+                        shiny::tabPanel("Annotate Peaks",
+                                shiny::uiOutput("peakgeneannotation_ui")
+                        ),
+                        shiny::tabPanel("MixOmics"),
+                        shiny::tabPanel("MoFa")
+                ),
+                shiny::navbarMenu("Utilities",
+                    shiny::tabPanel("BAM Utility"),
+                    shiny::tabPanel("BED Utility",
+                        shiny::uiOutput("bedutilities_ui")
                     ),
-                    tabPanel("Conversion Utility"),
-                        tabPanel("Table Utility",
-                            uiOutput("tabletool_ui")
+                    shiny::tabPanel("Conversion Utility"),
+                        shiny::tabPanel("Table Utility",
+                            shiny::uiOutput("tabletool_ui")
                         ),
-                        tabPanel("Count Utility",
-                            uiOutput("counttool_ui")
+                        shiny::tabPanel("Count Utility",
+                            shiny::uiOutput("counttool_ui")
                         ),
-                        tabPanel("Track Utility"),
-                           # tabPanel("Filtering Utility",
-                           #          uiOutput("filteringutility_ui")),
-                        tabPanel("...")
+                        shiny::tabPanel("Track Utility"),
+                           # shiny::tabPanel("Filtering Utility",
+                           #          shiny::uiOutput("filteringutility_ui")),
+                        shiny::tabPanel("...")
                 ),
-                navbarMenu("Repr Res",
-                    tabPanel("Step Tracking"), ## visualizzazione a grafo degli step performati dall'utente
-                    tabPanel("Caching Databases"), ## interfaccia di visualizzazione dei database di caching generati
-                    tabPanel("R-Markdown",
-                        uiOutput("rmarkdown_ui") ),
-                    tabPanel("Generated HTML"),
-                    tabPanel("General Settings")
+                shiny::navbarMenu("Repr Res",
+                    shiny::tabPanel("Step Tracking"), ## visualizzazione a grafo degli step performati dall'utente
+                    shiny::tabPanel("Caching Databases"), ## interfaccia di visualizzazione dei database di caching generati
+                    shiny::tabPanel("R-Markdown",
+                        shiny::uiOutput("rmarkdown_ui") ),
+                    shiny::tabPanel("Generated HTML"),
+                    shiny::tabPanel("General Settings")
                 ),
-                navbarMenu("Results",
-                    tabPanel("Plots"),
-                    tabPanel("Tables")
+                shiny::navbarMenu("Results",
+                    shiny::tabPanel("Plots"),
+                    shiny::tabPanel("Tables")
                 )
-                # navbarMenu("More",
-                #            tabPanel("Help"),
-                #            tabPanel("About")
+                # shiny::navbarMenu("More",
+                #            shiny::tabPanel("Help"),
+                #            shiny::tabPanel("About")
                 # )
      )
 )

@@ -1,6 +1,7 @@
 IntegrhoServer <- function(input, output, session)
 {
 
+    projectVar <- reactiveValues()
     ## project session
     output$project_ui <- renderUI(
     {
@@ -31,6 +32,7 @@ IntegrhoServer <- function(input, output, session)
         mainProject <- ProjectR6$new(name=proj.name,
                                     main.working.path="IntegrHO")
         mainProject$setDesignTable(design.df=design.table)
+        projectVar$mainProject <- mainProject
     })
 
     ## data exploration section
@@ -46,6 +48,17 @@ IntegrhoServer <- function(input, output, session)
         RenderGenomicPlotsUI(input, output, session)
     })
 
+
+    ## NEW rna-seq
+    output$rnaCounts_ui <- renderUI({
+
+    })
+    callModule(renderRnaSeqFiltering, "rnaFiltCounts_ui")
+    callModule(renderRnaSeqNormalization, "rnaNormCounts_ui")
+    # output$rnaNormCounts_ui <- renderUI({
+    #     RenderRnaSeqNormalizationUI(input, output, session)
+    # })
+
     ##rna-seq section
     output$rnaseqgenexpression_ui <- renderUI({
         RenderRnaSeqGeneExpressionUI(input, output, session)
@@ -59,19 +72,23 @@ IntegrhoServer <- function(input, output, session)
     #   RenderRnaSeqUquaUI(input, output, session)
     # })
 
-    output$rnaseqnormalization_ui <- renderUI({
-        RenderRnaSeqNormalizationUI(input, output, session)
-    })
+    # output$rnaseqnormalization_ui <- renderUI({
+    #         RenderRnaSeqNormalizationUI(input, output, session)
+    #     })
 
-    output$boxplotrnaseq_plotly <- plotly::renderPlotly({
-        if (input$rnaseqnormalize_button == 0) return()
-        RenderRnaSeqUnNormalizedBoxplotPlot(input, output, session)
-    })
+    # output$rnaseqnormalization_ui <- renderUI({
+    #     RenderRnaSeqNormalizationUI(input, output, session)
+    # })
 
-    output$boxplotrnaseqnormalized_plotly <- plotly::renderPlotly({
-        if (input$rnaseqnormalize_button == 0) return()
-        RenderRnaSeqNormalizationBoxplotPlot(input, output, session)
-    })
+    # output$boxplotrnaseq_plotly <- plotly::renderPlotly({
+    #     if (input$rnaseqnormalize_button == 0) return()
+    #     RenderRnaSeqUnNormalizedBoxplotPlot(input, output, session)
+    # })
+    #
+    # output$boxplotrnaseqnormalized_plotly <- plotly::renderPlotly({
+    #     if (input$rnaseqnormalize_button == 0) return()
+    #     RenderRnaSeqNormalizationBoxplotPlot(input, output, session)
+    # })
 
     # output$boxplotrnaseququa_plotly <- renderPlotly({
     #   if (input$rnaseququa_button == 0) return()
